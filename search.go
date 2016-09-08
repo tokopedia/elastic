@@ -56,9 +56,9 @@ func (s *SearchService) RequestCache(cacheStatus bool) {
 }
 
 
-// get set source
-func (s *SearchService) GetSource() interface{} {
-        return s.source
+// get search source
+func (s *SearchService) GetSource() *SearchSource {
+        return s.searchSource
 }
 
 
