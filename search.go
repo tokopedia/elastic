@@ -52,15 +52,20 @@ func (s *SearchService) SearchSource(searchSource *SearchSource) *SearchService 
 
 // set request cache status
 func (s *SearchService) RequestCache(cacheStatus bool) {
-        s.requestCache= cacheStatus
+	s.requestCache= cacheStatus
 }
 
 
 // get search source
 func (s *SearchService) GetSource() *SearchSource {
-        return s.searchSource
+	return s.searchSource
 }
 
+// get search url
+func (s *SearchService) GetSearchUrl() string {
+    path, params, _ := s.buildURL()
+    return path + "?" + params.Encode()
+}
 
 // Source allows the user to set the request body manually without using
 // any of the structs and interfaces in Elastic.
