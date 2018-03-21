@@ -137,6 +137,7 @@ type Client struct {
 	requiredPlugins           []string        // list of required plugins
 	gzipEnabled               bool            // gzip compression enabled or disabled (default)
 	retrier                   Retrier         // strategy for retries
+	decoderConfigJSON         string          // option for library and config that used for Decode
 }
 
 // NewClient creates a new client to work with Elasticsearch.
@@ -673,6 +674,24 @@ func SetRetrier(retrier Retrier) ClientOptionFunc {
 			retrier = noRetries // no retries by default
 		}
 		c.retrier = retrier
+		return nil
+	}
+}
+
+// SetDecoder sets the Decoder to use when decoding data from Elasticsearch.
+// DefaultDecoder is used by default.
+func SetDecoderConfig(decoderConfigJSON string) ClientOptionFunc {
+	return func(c *Client) error {
+		switch decoderConfigJSON {
+		case "iterFastest":
+			c.decoder = &IteratorFastestDecoder{}
+		case "iterDefault":
+			c.decoder = &IteratorDefaultDecoder{}
+		case "iterStandard":
+			c.decoder = &IteratorStandardDecoder{}
+		default:
+			c.decoder = &DefaultDecoder{}
+		}
 		return nil
 	}
 }
