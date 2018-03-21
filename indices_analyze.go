@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"net/url"
 
-	"gopkg.in/olivere/elastic.v5/uritemplates"
+	"github.com/tokopedia/elastic/uritemplates"
 )
 
 // IndicesAnalyzeService performs the analysis process on a text and returns

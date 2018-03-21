@@ -10,7 +10,7 @@ import (
 	"net/url"
 	"strings"
 
-	"gopkg.in/olivere/elastic.v5/uritemplates"
+	"github.com/tokopedia/elastic/uritemplates"
 )
 
 // TasksListService retrieves the list of currently executing tasks

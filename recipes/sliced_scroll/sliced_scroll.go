@@ -35,8 +35,8 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/tokopedia/elastic"
 	"golang.org/x/sync/errgroup"
-	"gopkg.in/olivere/elastic.v5"
 )
 
 func main() {

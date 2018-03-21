@@ -11,7 +11,7 @@ import (
 
 	"net/http"
 
-	"gopkg.in/olivere/elastic.v5/uritemplates"
+	"github.com/tokopedia/elastic/uritemplates"
 )
 
 // DeleteService allows to delete a typed JSON document from a specified
