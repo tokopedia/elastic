@@ -9,7 +9,7 @@ import (
 	"errors"
 	"net/url"
 
-	"gopkg.in/olivere/elastic.v5/uritemplates"
+	"github.com/tokopedia/elastic/uritemplates"
 )
 
 // IndicesCreateService creates a new index.
